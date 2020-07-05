@@ -1,14 +1,60 @@
+来自博客【https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192】
 1.创建空目录,执行git init，git会在这个目录下生成.git隐藏文件夹
   注：所在文件不要使用中文路径名
 2.创建文件，使用git add 文件，添加需要提交的文件，然后执行git commit -m ''
+<<<<<<< HEAD
   【git add <File>】【git commit -m '说明'】
+=======
+【git add <File>】【git commit -m '说明'】
+>>>>>>> nginx
   注：
   a.出现错误：fatal:not a git repository(or any of the parent directories)
     原因是在仓库外执行的add操作
   b.出现错误：fatal:pathspec 'readme.txt' did not match any files
     原因文件不存在
 3.给仓库添加origin属性，否则会push失败
+<<<<<<< HEAD
   【git remote add origin <git路径>】
 4.执行push操作
   【git push -u origin <分支>】 
 5.修改Git提交的message信息
+=======
+【git remote add origin <git路径>】
+4.执行push操作
+【git push -u origin <分支>】 
+5.修改Git提交的message信息
+【git rebase -i HEAD~5】
+【然后将需要改的日志前的pick改成edit】
+【git commit --amend】
+【git rebase --continue】
+【git push origin <branch> -f】
+6.查看文件历史修改
+【git diff 文件】
+7.查看提交日志
+【git reset --hard commit_id】
+【git log <--pretty=oneline>】 最新日志
+【git reflog <--pretty=oneline>】 所有日志包括回滚前的日志
+【git log --graph】分支合并图
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
+穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+8.git管理的是修改
+每次修改如果不通过git add搭配暂存区，就不会加入到commit中的
+9.撤销修改
+【git checkout -- readme.txt】,将readme.txt文件在工作区的修改全部撤销，有两种情况：
+一种是自修改后还没被放到暂存区，撤回到与版本库一样的状态；
+一种是已经添加到暂存区后，又作了修改，撤销到添加暂存区后的状态；
+10.删除文件
+【git rm 文件名】
+一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：
+一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本；【git checkout -- test.txt】
+注意：从来没有被添加到版本库就被删除的文件，是无法恢复的！
+11.创建分支，并切换到分支
+【git checkout -b dev】 == 【git branch dev;git checkout dev】
+12.查看分支
+【git branch】
+13.合并分支
+【git merge】
+14.删除分支
+【git branch -d 分支名称】
+15.合并分支，并生成一个新分支
