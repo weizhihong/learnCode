@@ -12,3 +12,6 @@
 4.执行push操作
   【git push -u origin <分支>】 
 5.修改Git提交的message信息
+  【git rebase -i】
+  【git commit --amend】
+  【git rebase --continue】
