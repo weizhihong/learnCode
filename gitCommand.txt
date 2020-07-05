@@ -1,14 +1,21 @@
 1.创建空目录,执行git init，git会在这个目录下生成.git隐藏文件夹
   注：所在文件不要使用中文路径名
 2.创建文件，使用git add 文件，添加需要提交的文件，然后执行git commit -m ''
-  【git add <File>】【git commit -m '说明'】
+【git add <File>】【git commit -m '说明'】
   注：
   a.出现错误：fatal:not a git repository(or any of the parent directories)
     原因是在仓库外执行的add操作
   b.出现错误：fatal:pathspec 'readme.txt' did not match any files
     原因文件不存在
 3.给仓库添加origin属性，否则会push失败
-  【git remote add origin <git路径>】
+【git remote add origin <git路径>】
 4.执行push操作
-  【git push -u origin <分支>】 
+【git push -u origin <分支>】 
 5.修改Git提交的message信息
+【git rebase -i HEAD~5】
+【然后将需要改的日志前的pick改成edit】
+【git commit --amend】
+【git rebase --continue】
+【git push origin <branch> -f】
+6.查看文件历史修改
+【git diff 文件】
