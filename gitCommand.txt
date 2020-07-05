@@ -19,3 +19,19 @@
 【git push origin <branch> -f】
 6.查看文件历史修改
 【git diff 文件】
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.复制特定的提交到当前分支
+git cherry-pick <commitId>
